@@ -11,6 +11,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final clientId =
+      "799472674812-c9u7v9fh59595qpvucq4fkltg87ke0b5.apps.googleusercontent.com";
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
@@ -19,9 +22,10 @@ class _LoginPageState extends State<LoginPage> {
           if (snapshot.hasData) {
             return const HomePage(title: 'Flutter Demo Home Page');
           } else {
-            return const SignInScreen(
+            return SignInScreen(
               providerConfigs: [
-                EmailProviderConfiguration(),
+                GoogleProviderConfiguration(clientId: clientId),
+                const EmailProviderConfiguration(),
               ],
             );
           }
