@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "799472674812",
+    "project_id": "shaalescreening",
+    "storage_bucket": "shaalescreening.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799472674812:android:d0cfe113162bc6f4393479",
+        "android_client_info": {
+          "package_name": "com.shaalescreening.fluttertest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799472674812-c9u7v9fh59595qpvucq4fkltg87ke0b5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz-rqMkX6Z5Wh8v5mRAVoM6Q4iDSJphMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799472674812-c9u7v9fh59595qpvucq4fkltg87ke0b5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799472674812-3dpp0tukgng7mki2r9nsghfavf6qb3hk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shaalescreening.fluttertest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
