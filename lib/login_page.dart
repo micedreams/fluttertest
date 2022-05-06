@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertest/home_page.dart';
+import 'package:flutterfire_ui/auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -10,8 +13,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'You have pushed the button this many times:',
-    );
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const HomePage(title: 'Flutter Demo Home Page');
+          } else {
+            return const SignInScreen(
+              providerConfigs: [
+                EmailProviderConfiguration(),
+              ],
+            );
+          }
+        });
   }
 }
