@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
             return const HomePage(title: 'Flutter Demo Home Page');
           } else {
             return SignInScreen(
+              resizeToAvoidBottomInset:true,
               providerConfigs: [
                 GoogleProviderConfiguration(clientId: clientId),
                 const EmailProviderConfiguration(),

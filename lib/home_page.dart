@@ -11,8 +11,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String json = '';
+
+  Future<void> fetchData() async {
+    String data =
+        await DefaultAssetBundle.of(context).loadString("assets/home.json");
+
+    setState(() {
+      json = data;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    fetchData();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -22,10 +34,7 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.logout))
         ],
       ),
-      body: const Center(
-          child: Text(
-        'We are here!!',
-      )),
+      body: Center(child: Text(json)),
     );
   }
 }
