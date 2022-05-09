@@ -5,6 +5,7 @@ import 'package:fluttertest/end_point.dart';
 import 'package:fluttertest/components/loading_wheel.dart';
 import 'package:fluttertest/model/list_item.dart';
 import 'package:fluttertest/components/tree.dart';
+import 'package:fluttertest/screens/list_items_search_delegate.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -17,10 +18,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<ListItem> listItems = [];
+  List<ListItem> flatList = [];
 
   Future<void> fetchData() async {
     List<ListItem> allListItems = await EndPoint.getAllListItems(context);
+    List<ListItem> flatItems = flatenedList(allListItems);
+
     setState(() {
+      flatList = flatItems;
       listItems = allListItems;
     });
   }
@@ -31,6 +36,19 @@ class _HomePageState extends State<HomePage> {
     fetchData();
   }
 
+  List<ListItem> flatenedList(List<ListItem> list) {
+    final List<ListItem> flat = [];
+    if (list.isNotEmpty) {
+      flat.addAll(list);
+      for (int i = 0; i < list.length; i++) {
+        if (list[i].children!.isNotEmpty) {
+          flat.addAll(flatenedList(list[i].children!));
+        }
+      }
+    }
+    return flat;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +56,11 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
         actions: [
           IconButton(
-            onPressed: () {
-              
+            onPressed: () async {
+              await showSearch(
+                context: context,
+                delegate: ListItemsSearchDelegate(flatList),
+              );
             },
             icon: Constants.searchIcon,
           ),
@@ -54,4 +75,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
