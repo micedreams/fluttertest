@@ -38,6 +38,19 @@ class ListItem with _$ListItem {
   Widget returnChildType(bool isExpanded) {
     return ListItemChildType.new(this).returnChildType(isExpanded);
   }
+
+  static List<ListItem> flatenedList(List<ListItem> list) {
+    final List<ListItem> flat = [];
+    if (list.isNotEmpty) {
+      flat.addAll(list);
+      for (int i = 0; i < list.length; i++) {
+        if (list[i].children!.isNotEmpty) {
+          flat.addAll(flatenedList(list[i].children!));
+        }
+      }
+    }
+    return flat;
+  }
 }
 
 class ListItemChildType {

@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> fetchData() async {
     List<ListItem> allListItems = await EndPoint.getAllListItems(context);
-    List<ListItem> flatItems = flatenedList(allListItems);
+    List<ListItem> flatItems = ListItem.flatenedList(allListItems);
 
     setState(() {
       flatList = flatItems;
@@ -34,19 +34,6 @@ class _HomePageState extends State<HomePage> {
   initState() {
     super.initState();
     fetchData();
-  }
-
-  List<ListItem> flatenedList(List<ListItem> list) {
-    final List<ListItem> flat = [];
-    if (list.isNotEmpty) {
-      flat.addAll(list);
-      for (int i = 0; i < list.length; i++) {
-        if (list[i].children!.isNotEmpty) {
-          flat.addAll(flatenedList(list[i].children!));
-        }
-      }
-    }
-    return flat;
   }
 
   @override
