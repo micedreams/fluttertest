@@ -13,7 +13,7 @@ _$_ListItem _$$_ListItemFromJson(Map<String, dynamic> json) => _$_ListItem(
           ?.map((e) => ListItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       name: json['name'] as String?,
-      level: json['level'] as int?,
+      level: json['level'] as num?,
       hasAccess: json['hasAccess'] as bool?,
     );
 

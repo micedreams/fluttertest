@@ -24,7 +24,7 @@ mixin _$ListItem {
   String? get parentId => throw _privateConstructorUsedError;
   List<ListItem>? get children => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  int? get level => throw _privateConstructorUsedError;
+  num? get level => throw _privateConstructorUsedError;
   bool? get hasAccess => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ListItemCopyWith<$Res> {
       String? parentId,
       List<ListItem>? children,
       String? name,
-      int? level,
+      num? level,
       bool? hasAccess});
 }
 
@@ -83,7 +83,7 @@ class _$ListItemCopyWithImpl<$Res> implements $ListItemCopyWith<$Res> {
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       hasAccess: hasAccess == freezed
           ? _value.hasAccess
           : hasAccess // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$_ListItemCopyWith<$Res> implements $ListItemCopyWith<$Res> {
       String? parentId,
       List<ListItem>? children,
       String? name,
-      int? level,
+      num? level,
       bool? hasAccess});
 }
 
@@ -146,7 +146,7 @@ class __$$_ListItemCopyWithImpl<$Res> extends _$ListItemCopyWithImpl<$Res>
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       hasAccess: hasAccess == freezed
           ? _value.hasAccess
           : hasAccess // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$_ListItem extends _ListItem with DiagnosticableTreeMixin {
   @override
   final String? name;
   @override
-  final int? level;
+  final num? level;
   @override
   final bool? hasAccess;
 
@@ -250,7 +250,7 @@ abstract class _ListItem extends ListItem {
       final String? parentId,
       final List<ListItem>? children,
       final String? name,
-      final int? level,
+      final num? level,
       final bool? hasAccess}) = _$_ListItem;
   const _ListItem._() : super._();
 
@@ -265,7 +265,7 @@ abstract class _ListItem extends ListItem {
   @override
   String? get name => throw _privateConstructorUsedError;
   @override
-  int? get level => throw _privateConstructorUsedError;
+  num? get level => throw _privateConstructorUsedError;
   @override
   bool? get hasAccess => throw _privateConstructorUsedError;
   @override
